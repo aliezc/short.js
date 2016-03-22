@@ -2,6 +2,8 @@
 	'use strict';
 	window.$ = document.querySelectorAll.bind(document);
 	HTMLElement.prototype.$ = HTMLElement.prototype.querySelectorAll;
+	HTMLElement.prototype.on = HTMLElement.prototype.addEventListener;
+	HTMLElement.prototype.rmon = HTMLElement.prototype.removeEventListener;
 	NodeList.prototype.each = function(f){
 		if('function' != typeof f) return false;
 		for(var i = 0; i < this.length; i++){
@@ -39,6 +41,16 @@
 				this.setAttribute(c, s);
 			}else{
 				return this.getAttribute(c);
+			}
+		}
+		return this;
+	}
+	HTMLElement.prototype.data = function(c, s){
+		if('string' == typeof c){
+			if('string' == typeof s){
+				this.dataset[c] = s;
+			}else{
+				return this.dataset[c];
 			}
 		}
 		return this;
