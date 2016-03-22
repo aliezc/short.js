@@ -43,4 +43,29 @@
 		}
 		return this;
 	}
+	window.ajax = function(options, cb){
+		var xhr = new XMLHttpRequest(), qs = '';
+		xhr.open(options.method || 'GET', options.url, true);
+		if(options.headers){
+			for(var i in options.headers){
+				xhr.setRequestHeader(i, options[i]);
+			}
+		}
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4){
+				cb.call(window, xhr.responseText, xhr.status);
+			}
+		}
+		if(options.method == 'POST' && options.data){
+			for(var i in options.data){
+				qs += i + '=' + options.data[i] + '&';
+			}
+			qs = qs.slice(0, -1);
+		}
+		if(qs){
+			xhr.send(qs);
+		}else{
+			xhr.send();
+		}
+	}
 }();
