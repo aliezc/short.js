@@ -76,6 +76,7 @@
 			}
 		}
 		if(options.method == 'POST' && options.data){
+			xhr.setRequestHeader("Content-type", 'application/x-www-form-urlencoded; Charset=utf-8');
 			for(var i in options.data){
 				qs += i + '=' + options.data[i] + '&';
 			}
