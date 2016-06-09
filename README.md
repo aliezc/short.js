@@ -11,7 +11,7 @@
 ```javascript
 document.ready(function(){
 	// 选取元素
-	$('div').each(function(e){
+	$$('div').each(function(e){
 		
 		// 设置样式
 		e.css('display', 'block');
@@ -35,7 +35,7 @@ document.ready(function(){
 		// 添加事件监听
 		e.on('click', function(){
 			// 选取子元素
-			e.$('p').each(function(c){
+			e.$$('p').each(function(c){
 				
 				// 获取样式
 				console.log(c.css('color'));
@@ -69,6 +69,10 @@ document.ready(function(){
 ```
 
 ## 更新日志
+
+* *2016-06-09*
+
+修改选取方法名称$为$$，和jq共存
 
 * *2016-03-28*
 

@@ -1,6 +1,6 @@
 !function(){
 	'use strict';
-	window.$ = document.querySelectorAll.bind(document);
+	window.$$ = document.querySelectorAll.bind(document);
 	window.on = window.addEventListener;
 	window.rmon = window.removeEventListener;
 	document.ready = function(f){
@@ -8,7 +8,7 @@
 	}
 	document.on = document.addEventListener;
 	document.rmon = document.removeEventListener;
-	HTMLElement.prototype.$ = HTMLElement.prototype.querySelectorAll;
+	HTMLElement.prototype.$$ = HTMLElement.prototype.querySelectorAll;
 	HTMLElement.prototype.on = HTMLElement.prototype.addEventListener;
 	HTMLElement.prototype.rmon = HTMLElement.prototype.removeEventListener;
 	NodeList.prototype.each = function(f){
